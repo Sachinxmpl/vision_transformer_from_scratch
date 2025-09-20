@@ -8,7 +8,7 @@ class InputEmbedding(nn.Module):
     """
     Takes input iamges converts to patch embedding with positional encoding and cls token
     """
-    def __init__(self , image_size = 224 , patch_size = 16 , num_channels = 3 , emb_dims= 768) -> None:
+    def __init__(self , image_size = 224 , patch_size = 16 , num_channels = 3 , emb_dims= 768 , dropout = 0.1) -> None:
         super().__init__()
         
         # convert to patches
@@ -24,7 +24,7 @@ class InputEmbedding(nn.Module):
         self.pos_embeddings = nn.Parameter(torch.zeros(1 , num_patches + 1 , emb_dims))
 
         # dropout layer
-        self.dropout = nn.Dropout(0.1)
+        self.dropout = nn.Dropout(dropout)
 
     def forward(self , input_image):
         batch_size , num_channels , height , width = input_image.shape
