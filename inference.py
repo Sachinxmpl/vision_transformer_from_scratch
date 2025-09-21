@@ -48,6 +48,6 @@ def predict_image(img_path):
         return classes[predicted.item()]
     
 if __name__ == "__main__":
-    img_path = "sample_image.png"  
+    img_path = "sample.jpg"  
     prediction = predict_image(img_path)
     print(f"Predicted class: {prediction}")
