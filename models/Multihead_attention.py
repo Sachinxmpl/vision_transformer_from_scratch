@@ -47,7 +47,7 @@ class Multihead_attention_layer(nn.Module):
         context  = torch.matmul(attention_probabilities , value) # (B, num_heads, seq_len, head_size)
 
         # concatenate heads
-        context = context.transpose(1, 2).contiguous().view(batch_size, seq_len, self.all_head_size) , 
+        context = context.transpose(1, 2).contiguous().view(batch_size, seq_len, self.all_head_size) 
         # gives output of (B , 197 , 768)
 
         # Final linear projection
